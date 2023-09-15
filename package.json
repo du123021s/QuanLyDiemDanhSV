@@ -1,10 +1,12 @@
 {
   "name": "blog",
+  "type": "module",
   "version": "1.0.0",
   "description": "project nodejs ",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
-    "start": "nodemon --inspect app.js",
+    "start": "nodemon --inspect src/app.js",
+    "watch": "node-sass --watch src/resource/sass/ --output src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,9 +23,12 @@
   },
   "homepage": "https://github.com/du123021s/Blog_NodeJS#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2"
   },
   "devDependencies": {
+    "morgan": "^1.10.0",
+    "node-sass": "^9.0.0",
     "nodemon": "^3.0.1"
   }
 }
