@@ -1,0 +1,1 @@
+(()=>{"use strict";document.querySelector("#title").style.color="red"})();

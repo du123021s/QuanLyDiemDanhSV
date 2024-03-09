@@ -1,0 +1,172 @@
+.manage-user-expand {
+      opacity: 0.1;
+      background-color: #e2e5e73b;
+}
+
+.manage-users {
+      padding-left: 3rem;
+      padding-top: 0rem;
+      padding-bottom: 0rem;
+      padding-right: 8px;
+}
+
+// .user-mr {}
+
+.users-title {
+      font-size: 18px;
+      font-weight: 500;
+      padding-bottom: 10px;
+      padding-top: 10px
+}
+
+#trash-icons {
+      font-size: 18px;
+      color: white;
+}
+
+#userTable {
+      margin-left: 1rem;
+      width: 79rem;
+}
+
+#addUsers {
+      margin-right: 5px;
+}
+
+#pagination {
+      margin-top: 10px;
+}
+
+#prevPage,
+#nextPage {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+}
+
+#currentPage {
+      padding: 5px 10px;
+      font-weight: bold;
+}
+
+// ===== FRORM THÊM NGƯỜI DÙNG MỚI ======================
+.close-button {
+      position: absolute;
+      font-size: 35px;
+      color: #cccccc;
+      top: -9px;
+      right: 10px;
+      cursor: pointer;
+}
+
+.manageForm>h3 {
+      font-weight: 700;
+      color: green;
+}
+
+.manageForm {
+      display: none;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      max-width: 480px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff5de;
+      transform: translate(-50%, -50%);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.form-group {
+      margin-bottom: 12px;
+}
+
+.form-group-inline {
+      display: flex;
+      justify-content: space-between;
+}
+
+.custom-control {
+      margin-right: 20px;
+}
+
+.form-group>label {
+      display: block;
+      font-weight: 600;
+}
+
+#submitUsersForm {
+      padding: 10px 20px;
+      width: 100%;
+}
+
+// === search bar
+.user-search {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 12px;
+      margin-bottom: 12px;
+}
+
+.user-search>input {
+      width: 50%;
+}
+
+// ===== Update user form =======
+.update-Usr-Fm {
+      display: none;
+      background-color: #f8f9fa;
+      position: absolute;
+      top: 0%;
+      left: 28%;
+      max-width: 50%;
+      margin: 0 auto;
+      padding: 17px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 20px;
+
+      /* Khoảng cách từ trên xuống để nằm giữa trang */
+}
+
+.custom-form {
+      border: 1px solid #ced4da;
+      padding: 17px;
+      border-radius: 8px;
+}
+
+.form-row {
+      display: flex;
+      justify-content: space-between;
+}
+
+.form-row>label {
+      display: block;
+      font-weight: 600;
+}
+
+.form-group {
+      margin-right: 25px;
+      margin-bottom: 15px;
+}
+
+.usr-fm-g>input {
+      width: 230px;
+}
+
+.close-button {
+      font-size: 24px;
+      cursor: pointer;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+}
+
+#updateUsrFmBtn {
+      width: 100%;
+}

@@ -1,0 +1,268 @@
+<div class="container rightContent">
+      {{!-- MANAGE USER PAGE --}}
+      <div class="manage-user-layout">
+            <div class="row">
+                  <div class="col-sm-12 users-title">
+                        User Management
+                  </div>
+                  <hr>
+            </div>
+            <div class="row">
+                  <div class="col-sm-1"></div>
+                  <div class="col-sm-8"></div>
+                  <div class="col-sm-3 manage-users">
+                        <button type="button" class="btn btn-primary" id="addUsers">Add new users</button>
+                        <button type="button" class="btn btn-primary" id="updateUsers">Update users</button>
+                  </div>
+            </div>
+
+            <div class="row">
+                  <form class="d-flex mt-3 user-search" role="search">
+                        <input class="form-control me-2" id="usr-searchInput" type="search" placeholder="Search"
+                              aria-label="Search">
+                  </form>
+            </div>
+
+            <div class="row">
+                  <div class="col-sm-11">
+                        <table class="table" id="userTable">
+                              <thead>
+                                    <tr>
+                                          <th scope="col">#</th>
+                                          <th scope="col">User ID</th>
+                                          <th scope="col">UserName</th>
+                                          <th scope="col">Email</th>
+                                          <th scope="col">Role</th>
+                                          <th scope="col">Active</th>
+                                          <th scope="col">Delete</th>
+                                          <th scope="col">Checked</th>
+                                    </tr>
+                              </thead>
+                              <tbody class="table-group-divider">
+                                    {{#each users}}
+                                    <tr data-id="{{_id}}">
+                                          <td scope="row" class="usr-stt">1</td>
+                                          <td>{{this.userID}}</td>
+                                          <td>{{this.username}}</td>
+                                          <td>{{this.email}}</td>
+                                          <td>{{this.role}}</td>
+                                          <td>{{this.active}}</td>
+                                          <td name="docID">
+                                                <button class="btn btn-danger delete-users-link" value="{{_id}}">
+                                                      <i class="fa-solid fa-trash" id="trash-icons"></i>
+                                                </button>
+                                          </td>
+                                          <td><input type="checkbox" id="usr-chboxes" class="checkboxRow" name="userIds"
+                                                      value="{{_id}}"></td>
+
+                                    </tr>
+                                    {{/each}}
+                              </tbody>
+                        </table>
+
+                        <div id="pagination-container">
+                              <ul class="pagination"></ul>
+                        </div>
+
+                  </div>
+            </div>
+      </div>
+
+      {{!--=============== FORM ADD A NEW USER ================--}}
+      <div class="mt-4 manageForm">
+            <span id="closeForm" class="close-button">&times;</span>
+            <h3>Add New User</h3>
+            <hr><br>
+
+            {{!-- action="/manage-users" method="POST" --}}
+            <form method="post">
+                  {{!-- USER ID --}}
+                  <div class="form-group">
+                        <label for="userID">ID:</label>
+                        <input type="text" class="form-control" id="userID" name="userID">
+                  </div>
+                  {{!-- USERNAME --}}
+                  <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username">
+                  </div>
+                  {{!-- PASSWORD --}}
+                  <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                  </div>
+                  {{!-- EMAIL --}}
+                  <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                  </div>
+                  {{!-- ROLE --}}
+                  <div class="form-group">
+                        <label for="role">Role:</label>
+                        <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" name="role" id="role1" value="Teacher">
+                              <label class="form-check-label" for="role1">Teacher</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" name="role" id="role2" value="Admin">
+                              <label class="form-check-label" for="role2">Admin</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" name="role" id="role3"
+                                    value="Training Department">
+                              <label class="form-check-label" for="role3">Training Department</label>
+                        </div>
+                  </div>
+
+                  {{!-- PERMISSION --}}
+                  <div class="form-group">
+                        <label for="">Permissions</label>
+                        <div class="form-group-inline">
+                              <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="permission1"
+                                          name="permission" value="manageDatabase">
+                                    <label for="permission1" class="custom-control-label">Manage Database</label>
+                              </div>
+                              <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="permission2"
+                                          name="permission" value="manageUsers">
+                                    <label for="permission2" class="custom-control-label">Manage Users</label>
+                              </div>
+                        </div>
+
+                        <div class="form-group-inline">
+                              <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="permission3"
+                                          name="permission" value="manageAttendance">
+                                    <label for="permission3" class="custom-control-label">Manage Attendance</label>
+                              </div>
+
+                              <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="permission4"
+                                          name="permission" value="manageImportFile">
+                                    <label for="permission4" class="custom-control-label">Manage Import File </label>
+                              </div>
+
+                        </div>
+                        <div class="form-group-inline">
+                              <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="permission5"
+                                          name="permission" value="manageFilePermissions">
+                                    <label for="permission5" class="custom-control-label">Permission File </label>
+                              </div>
+                              <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="permission6"
+                                          name="permission" value="absentStudentStatistics">
+                                    <label for="permission6" class="custom-control-label">Statistics</label>
+                              </div>
+                        </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-success" id="submitUsersForm">Add New User</button>
+            </form>
+      </div>
+
+      {{!-- ====== UPDATE USERS======== --}}
+      <div class="mt-4 update-Usr-Fm">
+            <span id="closeUpdateUsrForm" class="close-button">&times;</span>
+            <h3>Update User</h3>
+            <hr>
+
+            <div class="custom-form">
+                  <div class="form-row">
+                        <div class="form-group usr-fm-g">
+                              <label for="userID">User ID:</label>
+                              <input type="text" id="update-userID" name="userID" required disabled>
+                        </div>
+
+                        <div class="form-group usr-fm-g">
+                              <label for="username">UserName:</label>
+                              <input type="text" id="update-username" name="username" required>
+                        </div>
+                  </div>
+
+                  <div class="form-row">
+                        <div class="form-group usr-fm-g">
+                              <label for="email">Email:</label>
+                              <input type="email" id="update-email" name="email" required>
+                        </div>
+                  </div>
+
+
+                  <div class="form-row">
+                        <div class="form-group usr-fm-g">
+                              <label for="role">Role:</label>
+                              <div class="form-check form-check-inline">
+                                    <input type="checkbox" class="form-check-input role-updateFm" name="role" id="role1"
+                                          value="Teacher">
+                                    <label class="form-check-label" for="role1">Teacher</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                    <input type="checkbox" class="form-check-input role-updateFm" name="role" id="role2"
+                                          value="Admin">
+                                    <label class="form-check-label" for="role2">Admin</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                    <input type="checkbox" class="form-check-input role-updateFm" name="role" id="role3"
+                                          value="Training Department">
+                                    <label class="form-check-label" for="role3">Training Department</label>
+                              </div>
+                        </div>
+                  </div>
+
+
+                  <div class="form-row">
+                        <label for="">Permissions</label>
+                        <hr><br>
+                        <div class="form-group usr-fm-g">
+
+                              <div class="form-group-block">
+                                    <div class="custom-control custom-switch">
+                                          <input type="checkbox" class="custom-control-input pms-chbs" id="permission1"
+                                                name="permission" value="manageDatabase">
+                                          <label for="permission1" class="custom-control-label">Manage Database</label>
+                                    </div>
+                                    <div class="custom-control custom-switch">
+                                          <input type="checkbox" class="custom-control-input  pms-chbs" id="permission2"
+                                                name="permission" value="manageUsers">
+                                          <label for="permission2" class="custom-control-label">Manage Users</label>
+                                    </div>
+
+                                    <div class="custom-control custom-switch">
+                                          <input type="checkbox" class="custom-control-input  pms-chbs" id="permission3"
+                                                name="permission" value="manageAttendance">
+                                          <label for="permission3" class="custom-control-label">Manage
+                                                Attendance</label>
+                                    </div>
+                              </div>
+                        </div>
+
+                        <div class="form-group usr-fm-g">
+                              <div class="form-group-block">
+                                    <div class="custom-control custom-switch">
+                                          <input type="checkbox" class="custom-control-input pms-chbs" id="permission4"
+                                                name="permission" value="manageImportFile">
+                                          <label for="permission4" class="custom-control-label">Manage Import File
+                                          </label>
+                                    </div>
+
+                                    <div class="custom-control custom-switch">
+                                          <input type="checkbox" class="custom-control-input pms-chbs" id="permission5"
+                                                name="permission" value="manageFilePermissions">
+                                          <label for="permission5" class="custom-control-label">Permission File </label>
+                                    </div>
+                                    <div class="custom-control custom-switch">
+                                          <input type="checkbox" class="custom-control-input pms-chbs" id="permission6"
+                                                name="permission" value="absentStudentStatistics">
+                                          <label for="permission6" class="custom-control-label">Statistics</label>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary" id="updateUsrFmBtn">Update</button>
+            </div>
+
+      </div>
+</div>
+</div>

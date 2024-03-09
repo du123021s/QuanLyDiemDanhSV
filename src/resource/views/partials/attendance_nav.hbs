@@ -1,0 +1,42 @@
+<div class="vertical-navbar">
+  <div class="navbar-toggle">
+    <div class="navbar-icon" id="navbarToggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </div> <br>
+
+  <div class="navbar-links" id="navbarLinks">
+    <div class="logo-home"><img src="/img/logo_aptech.png" alt="Logo"></div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/dashboard">Dashboard</a>
+      </li>
+
+      {{#if permissions.accessFile}}
+      <li class="nav-item">
+        <a class="nav-link" href="/importFile">Attendance</a>
+      </li>
+      {{/if}}
+
+      {{#if permissions.manageUsers}}
+      <li class="nav-item">
+        <a class="nav-link" href="/manage-users">Permissions</a>
+      </li>
+      {{/if}}
+
+      {{#if permissions.absentStudentStatistics}}
+      <li class="nav-item">
+        <a class="nav-link" href="/statistical">Statistical</a>
+      </li>
+      {{/if}}
+
+      <li class="nav-item">
+        <a class="nav-link" href="/logout" id="logoutLink">Logout</a>
+      </li>
+    </ul>
+  </div>
+
+
+</div>

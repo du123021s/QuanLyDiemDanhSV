@@ -1,0 +1,67 @@
+<div class="container rightContent">
+      <div class="manage-user-layout">
+            <h1>Attendance Report</h1>
+
+            <div class="row">
+                  <div class="options">
+                        <label for="attendanceType">Select Attendance Type:</label>
+                        <select id="attendanceType">
+                              <option value="percentage25">Attendance &gt;= 25%</option>
+                              <option value="absence">Absence based on number of sessions</option>
+                        </select>
+
+                        <div id="absentInputRoot">
+                              <label for="numberOfAbsences">Number of Absences: </label>
+                              <input type="number" name="numberOfAbsences" id="numberOfAbsences" min="1" value="3">
+                        </div>
+
+                        <button id="generateReportBtn" class="btn btn-primary">Generate Report</button>
+                  </div>
+
+
+                  <div id="reportTableContainer">
+                        <!-- Report table will be dynamically created here using JavaScript -->
+                  </div>
+            </div>
+
+
+            <div class="row">
+                  <table class="custom-table table table-striped table-hover">
+                        <thead class="table-primary">
+                              <tr>
+                                    <th scope="col">Document</th>
+                                    <th scope="col">Choose</th>
+                              </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                              {{#each documents}}
+                              <tr>
+                                    <td>{{this.course}}</td>
+                                    <td><input type="checkbox" class="choose-checkbox" value="{{_id}}"></td>
+                              </tr>
+                              {{/each}}
+                        </tbody>
+                  </table>
+            </div>
+      </div>
+      <div id="statistical-form" class="row">
+            <span id="closeForm-tb" class="close-button close-statistics">&times;</span>
+            <h2>Result table</h2>
+            <hr>
+
+            <table class="result-statistics" id="statistical-table">
+                  <thead>
+                        <tr>
+                              <th>Roll Number</th>
+                              <th>Portal ID</th>
+                              <th>Name</th>
+                              <th id="absentCol">Absent</th>
+                        </tr>
+                  </thead>
+                  <tbody id="statistical-table-body">
+                        <!-- Table content will be added dynamically -->
+                  </tbody>
+            </table>
+      </div>
+
+</div>

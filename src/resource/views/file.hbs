@@ -1,0 +1,123 @@
+<script>
+  // Lấy dữ liệu từ server
+  var userRole = '{{ role }}';
+  console.log("user role: ", userRole);
+
+</script>
+
+<div class="container rightContent">
+  <div class="manage-file-layout">
+    <div class="row justify-content-end btnRoot" style="margin-bottom: 35px;">
+      <form class="d-flex mt-3 form-search" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      </form>
+      {{log permissions}}
+      {{#if permissions.manageImportFile}}
+      <div class="col-sm-3 p-0 importCol">
+        <input type="file" id="inputFile" style="display: none">
+        <button type="button" class="btn btn-primary btnFile" id="importBtn" name="actionFile" value="import">
+          <i class="fa-solid fa-upload"></i>Import a file
+        </button>
+      </div>
+      {{/if}}
+
+    </div>
+
+    <div class="row alert alert-success msg_hidden"></div>
+
+    <div class="row" id="documentTable">
+      <div id="actionBtns" class="hidden">
+        <button type="button" class="btn-close" aria-label="Close" id="closeFileBtn"></button>
+        <button type="button" class="btn btn-primary" id="deleteFileBtn">Delete</button>
+        <button type="button" class="btn btn-primary" id="exportFileBtn">Export</button>
+      </div>
+
+      <table class="table table-striped table-hover" id="file-table">
+        <thead class="table-primary">
+          <tr>
+            <th scope="col"><input type="checkbox" id="selectAll"></th>
+            <th scope="col">Batch</th>
+            <th scope="col">Document</th>
+            <th scope="col">Curriculum</th>
+            <th scope="col">Start Date</th>
+            {{#if permissions.manageAttendance}}
+            <th scope="col">Attendance</th>
+            {{/if}}
+
+            {{#if permissions.manageFilePermissions}}
+            <th scope="col">File Permissions</th>
+            {{/if}}
+
+          </tr>
+        </thead>
+        <tbody class="table-group-divider" id="documentTableBody">
+          {{log permissions}}
+          {{#each documentTable}}
+          <tr class="docID-{{_id}}">
+            <td><input type="checkbox" id="checkBoxs" class="checkboxRow" name="documentIDs" value="{{_id}}"></td>
+            <td>{{this.batch}}</td>
+            <td>{{this.course}}</td>
+            <td>{{this.curriculum}} </td>
+            <td>{{this.startdate }}</td>
+
+            {{!-- ../ => xem xét permissions độc lập với #each --}}
+            {{!-- {{log ../permissions}} --}}
+            {{#if ../permissions.manageAttendance}}
+            <td class="icon-attendance" name="documentIDs" value="{{_id}}">
+              <a href="/attendance/{{_id}}" class="attendance-link">
+                <i class="fa-solid fa-pen-to-square atten"></i>
+              </a>
+            </td>
+            {{/if}}
+
+            {{#if ../permissions.manageFilePermissions}}
+            <td>
+              <button class="btn btn-success btn-open-modal" data-file-id="{{_id}}">Permission</button>
+            </td>
+            {{/if}}
+
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+
+    <div id="pagination-container">
+      <ul class="pagination"></ul>
+    </div>
+  </div>
+  {{!-- === File Permission Table === --}}
+
+  <div id="permissionModal" class="row modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Delegate File Access Rights</h2>
+
+      <form class="d-flex mt-3 form-search-fpms" role="search">
+        <input class="form-control me-2" id="search-fpms" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <table class="table-fpms table-striped table-hover" id="pms-table">
+        <thead class="table-primary">
+          <tr class="custom-header">
+            <th scope="col">ID</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Check</th>
+          </tr>
+        </thead>
+
+        <tbody class="table-group-divider" id="filePms-Table">
+
+        </tbody>
+
+      </table>
+      <div id="pagination-container-pms">
+
+      </div>
+
+
+      <button id="btnAssignPermission" class="btn btn-success">Update</button>
+    </div>
+  </div>
+
+</div>

@@ -1,10 +1,427 @@
 @import 'variables_';
 
-h1{
-      color: white;
-      background-color: $green-color;
+/* CSS để căn giữa biểu mẫu */
+body {
+      margin: 0;
+      /* Xóa khoảng cách viền của body */
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+      font-size: 16px;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
 }
 
-.form_ex{
-      margin-left: 20px;
+.logo-ctu {
+      font-size: 48px;
+      font-weight: 500;
+      margin-right: 5px;
+}
+
+.center-login-form {
+      margin-top: 50px;
+      margin-left: 35%;
+      width: 550px;
+      /* Độ rộng của biểu mẫu */
+      border: 1px solid #ccc;
+      /* Viền biểu mẫu */
+      background-color: #f9f9f9;
+      /* Màu nền biểu mẫu */
+}
+
+.title-form {
+      font-size: 32px;
+      font-weight: 600;
+      margin: 7px;
+      margin-left: 40%;
+}
+
+.foot {
+      display: block;
+      position: absolute;
+      background-image: url('/img/foot_bg.jpg');
+      color: white;
+      margin-top: 50px;
+      margin-bottom: 0px;
+      padding: 20px 0;
+      text-align: center;
+      width: 100%;
+      height: 30%
+}
+
+.foot-info>ul {
+      list-style-type: none;
+}
+
+.foot-info>ul>li>span>img {
+      margin-top: 3px;
+}
+
+.foot-info>ul>li>span>a {
+      text-decoration: none;
+      color: #f9f9f9;
+      font-size: 38px;
+      font-weight: 800;
+      font-family: sans-serif;
+}
+
+.foot-info>ul>li>i>span {
+      font-family: serif;
+      font-size: 18px;
+}
+
+#foot-link-map {
+      text-decoration: none;
+      color: white;
+}
+
+#foot-link-map:hover {
+      color: aquamarine;
+}
+
+#foot-right {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      padding: 5px;
+      background-color: #000000;
+}
+
+
+// ====== Button Import and Export =============
+
+.form-search {
+      width: 47%;
+      margin-right: 6rem;
+      position: relative;
+      top: 1.2rem;
+}
+
+.fa-upload,
+.fa-download {
+      font-size: 21px;
+      width: 35px;
+}
+
+.btnFile {
+      font-weight: 600;
+      height: 44px;
+      font-size: 17px;
+}
+
+.rightContent {
+      display: block;
+      position: relative;
+      margin-top: 5px;
+      margin-left: 13rem;
+      padding-bottom: 20rem;
+}
+
+.importCol {
+      position: relative;
+      margin-right: -2rem;
+      // margin-top: -1rem;
+}
+
+.btnRoot {
+      margin-top: 25px;
+}
+
+// ==== 
+.general {
+      margin-left: 20%;
+}
+
+// .db_btn{
+
+// }
+
+.db_block1,
+.db_block2,
+.db_block3 {
+      padding: 70px;
+      padding-right: 162px;
+      padding-left: 162px;
+}
+
+// ==== Delete File Btn ======
+
+#actionBtns {
+      border-radius: 8px 8px 0 0;
+      background-color: #0d6efd;
+      padding: 12px;
+}
+
+.hidden {
+      display: none;
+}
+
+.alert {
+      width: 91%;
+}
+
+.msg_hidden {
+      display: none;
+}
+
+#deleteFileBtn {
+      background-color: white;
+      color: #0a86e9;
+      font-weight: 600;
+      height: 39px;
+      width: 82px;
+      margin-left: 17px;
+}
+
+#deleteFileBtn:hover {
+      background-color: #e8e8e8;
+}
+
+#exportFileBtn {
+      height: 39px;
+      width: 82px;
+      font-weight: 600;
+      margin-left: 7px;
+      border-color: cornflowerblue;
+}
+
+#exportFileBtn:hover {
+      background-color: #d8edff54;
+}
+
+.deleteTd {
+      text-align: center;
+}
+
+#deleteFileBtn {
+      border: none;
+}
+
+#deleteFileBtn>i {
+      color: rgb(3, 36, 103);
+}
+
+.icon-attendance {
+      display: flex;
+      height: 50px;
+}
+
+.atten {
+      color: rgb(1, 108, 10);
+      margin-left: 38px
+}
+
+.atten:hover {
+      color: rgb(0, 170, 14)
+}
+
+td.azul {
+      background-color: #1E90FF;
+      color: #ff00d4;
+}
+
+#attendance-data-table {
+      margin-right: 6rem;
+}
+
+
+// ================== HANDSONTABLE ===================================================
+
+/* Tùy chỉnh màu nền và màu chữ của ô */
+.handsontable td {
+      padding: 9px;
+      /* Tăng khoảng cách giữa nội dung và viền ô */
+      font-size: 17px;
+      /* Điều chỉnh kích thước chữ */
+      line-height: 1.9;
+      /* Điều chỉnh khoảng cách giữa các dòng trong ô */
+      height: 32px;
+      background-color: #f0f0f0;
+      color: #000000;
+      font-weight: 400;
+}
+
+/* Tùy chỉnh kích thước tiêu đề hàng và cột */
+.handsontable th {
+      background-color: #333;
+      color: #fff;
+      font-weight: bold;
+}
+
+.custom-save {
+      margin-top: 15px;
+}
+
+// ====================================================
+
+#documentTable {
+      width: 91%;
+      margin-left: 33px;
+}
+
+.expanded-table {
+      margin-left: -6rem !important;
+      width: 100% !important;
+}
+
+.expanded-hanson {
+      width: 108% !important;
+      margin-left: -9rem;
+}
+
+
+.my-custom-search-result-class {
+      color: #018c48;
+      font-weight: 600;
+}
+
+
+// ===== FILE PERMISSION ===========
+/* CSS cho modal */
+.modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      // min-height: 350px;
+}
+
+.modal-content {
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      width: 62%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+}
+
+.close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+}
+
+
+/* CSS cho thanh tìm kiếm */
+.form-search-fpms {
+      margin-bottom: 15px;
+      /* Khoảng cách dưới thanh tìm kiếm */
+}
+
+/* CSS cho input tìm kiếm */
+.form-search-fpms input {
+      width: 500px;
+      /* Độ rộng của input */
+      /* Thêm các thuộc tính khác tùy ý */
+}
+
+.table-fpms {
+      line-height: 32px;
+      max-height: 250px;
+      overflow-y: auto;
+      /* Thiết lập thanh cuộn tự động khi table quá lớn*/
+}
+
+/* CSS cho tiêu đề table*/
+.table-fpms thead {
+      position: sticky;
+      top: 0;
+      /* Giữ tiêu đề bảng ở đầu trang khi cuộn*/
+      background-color: #f8f9fa;
+      /* Màu nền cho tiêu đề*/
+      z-index: 1;
+      padding: 8px;
+}
+
+/* style.css */
+.custom-header {
+      background-color: #d0e7fe;
+}
+
+/* Làm cho các dòng lẻ có nền màu tối */
+.table-fpms tbody tr:nth-child(odd) {
+      background-color: #fff;
+}
+
+/* Làm cho các dòng chẵn có nền màu sáng khi di chuột vào */
+.table-fpms tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+}
+
+.table-fpms tbody tr:hover {
+      background-color: #dae1e6;
+}
+
+.table-fpms tbody .custom-checkbox {
+      margin-top: 4px;
+}
+
+// =============
+.manage-file-expand {
+      opacity: 0.1;
+      background-color: #e2e5e73b;
+}
+
+.file-expand {
+      opacity: 0.1;
+      background-color: #9597993b;
+}
+
+// ===============================================================================
+/* CSS cho chân trang file table */
+#pagination-container {
+      margin-top: 20px;
+}
+
+.pagination {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+}
+
+.pagination li {
+      display: inline-block;
+      margin: 0;
+}
+
+.pagination a {
+      text-decoration: none;
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 3px;
+      cursor: pointer;
+}
+
+.pagination a:hover {
+      background-color: #0056b3;
+}
+
+.pagination .active a {
+      background-color: #0056b3;
+}
+
+// ====== pagination cho permission table =========
+#pagination-container-pms {
+      margin-top: 7px;
+      margin-bottom: 7px;
+      text-align: center;
+}
+
+#pagination-container-pms button {
+      margin: 2px;
+      padding: 4px 7px;
+      background-color: #007bff;
+      color: #fff;
+      border: 1px solid #007bff;
+      cursor: pointer;
+      border-radius: 5px;
+}
+
+#pagination-container-pms button:hover {
+      background-color: #0056b3;
 }

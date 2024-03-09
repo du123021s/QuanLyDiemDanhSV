@@ -1,0 +1,24 @@
+<script>
+  // Lấy dữ liệu từ server
+  var documentData = {{{ documentData }}};
+
+</script>
+
+<div class="container rightContent user-mr">
+  <div class="row">
+
+    <div class="controls">
+      <input id="search_field" type="search" placeholder="Search">
+    </div>
+
+    <div class="mb-3 custom-save">
+      <button class="btn btn-info" id="saveDocumentBtn">Save</button>
+    </div>
+
+  </div>
+  {{!-- Message --}}
+  <div class="row alert alert-success msg_hidden"></div>
+
+  {{!-- Handsontable --}}
+  <div id="attendance-data-table"></div>
+</div>
